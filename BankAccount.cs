@@ -55,9 +55,9 @@ namespace OOP_Lesson2
 
 
 
-        //   public int AccountNumber { get { return SetAccountNumber(_accountNumber); }  }
-        //   public decimal Balance { get { return _balance; } set { _balance = value; } }
-        //   public accountType TypeOfBankAccount { get { return _typeOfBankAccount; } set { _typeOfBankAccount = value; } }
+           public int AccountNumber { get { return SetAccountNumber(); }  }
+           public decimal Balance { get { return _balance; } set { _balance = value; } }
+           public accountType TypeOfBankAccount { get { return _typeOfBankAccount; } set { _typeOfBankAccount = value; } }
 
            public void GetShow() // Метод вывода информации на экран 
            {
@@ -67,7 +67,7 @@ namespace OOP_Lesson2
 
 
           public  int SetAccountNumber()
-         {
+          {
              int result;
              Random r = new Random();
              result =  r.Next(100000, 999999);
@@ -76,7 +76,45 @@ namespace OOP_Lesson2
 
           }
 
+        public void withdrawMoney(BankAccount bank) 
+        {
+            decimal number;
+            decimal result;
+            Console.WriteLine("Введите пожалуйста сумму которую необходимо снять");
+            number = Decimal.Parse(Console.ReadLine());
+            if (number > bank.Balance)
+            {
+                Console.WriteLine("Недостаточно средств на вашем счете");
+            }
+            else if (number <= bank.Balance) 
+            {
+                bank.Balance = bank.Balance - number;
+                Console.WriteLine($"Вы сняли денежные средства в размере {number}");
+                Console.WriteLine($"Остаток на счете {bank.Balance}");
+            }
+             
+            
+        }
 
+        public void depositMoney(BankAccount bank) 
+        {
+            decimal number;
+           // decimal result;
+            Console.WriteLine("Введите пожалуйста сумму которую необходимо внести на счет");
+            number = Decimal.Parse(Console.ReadLine());
+            if (number == 0)
+            {
+                Console.WriteLine("К сожалению вы не внесли денежные средства");
+            }
+            else 
+            {
+                Console.WriteLine($"Вы внесли денежные средства в размере {number}");
+                bank.Balance = bank.Balance + number;
+                bank.GetShow();
+            }
+            
+
+        }
 
     }
 

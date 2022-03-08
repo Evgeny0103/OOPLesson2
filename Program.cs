@@ -6,14 +6,10 @@ namespace OOP_Lesson2
     {
         static void Main(string[] args)
         {
-            BankAccount a = new BankAccount();
-            a.GetShow();
-            BankAccount b = new BankAccount(4500M);
-            b.GetShow();
-            BankAccount c = new BankAccount(accountType.budget);
-            c.GetShow();
+           
             BankAccount d = new BankAccount(4500M, accountType.depositAccounts);
             d.GetShow();
+            d.depositMoney(d);
 
 
 
