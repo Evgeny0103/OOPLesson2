@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace OOP_Lesson2
 {
-    class TypeAccount
+    public class typeAccount
     {
+        enum accountType 
+        {
+            current, // Текущий
+            correspondent,  // Кореспондентский
+            calculated, // Расчетный
+            budget,  // Бюджетный
+            correspondentsubAccounts, // Кореспондентский суб-счета
+            trustManagement, // Доверительного управления 
+            special, // Специальные 
+            depositAccounts, // Счета по вкладам 
+
+        } 
     }
 }
