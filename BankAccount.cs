@@ -19,31 +19,62 @@ namespace OOP_Lesson2
 
     }
 
-   
+    
+
+
     public class BankAccount
     {
         private static int _accountNumber; // номер счета 
         private decimal _balance;  // Баланс 
         private accountType _typeOfBankAccount; // Тип банковского счета 
 
-        public int AccountNumber { get { return SetAccountNumber(_accountNumber); }  }
-        public decimal Balance { get { return _balance; } set { _balance = value; } }
-        public accountType TypeOfBankAccount { get { return _typeOfBankAccount; } set { _typeOfBankAccount = value; } }
 
-        public void GetShow() // Метод вывода информации на экран 
+        public BankAccount() 
         {
-            Console.WriteLine("Номер счета " + AccountNumber + 
-                " " + "Баланс счета" + " " + Balance + " " + "Тип счета" + " " + TypeOfBankAccount);
+            
+        }
+        public BankAccount( decimal balance)
+        {
+            _balance = balance;
+            _accountNumber = SetAccountNumber();
+
+        }
+        public BankAccount( accountType typeOfBankAccount)
+        {
+            _typeOfBankAccount = typeOfBankAccount;
+            _accountNumber = SetAccountNumber();
+
+        }
+        public BankAccount(decimal balance, accountType typeOfBankAccount)
+        {
+            _balance = balance;
+            _typeOfBankAccount = typeOfBankAccount;
+            _accountNumber = SetAccountNumber();
+
         }
 
 
-        public  int SetAccountNumber(int bank)
-        {
-            Random r = new Random();
-            bank = r.Next(100000, 999999);
-            return bank;
-           
-        }
+
+        //   public int AccountNumber { get { return SetAccountNumber(_accountNumber); }  }
+        //   public decimal Balance { get { return _balance; } set { _balance = value; } }
+        //   public accountType TypeOfBankAccount { get { return _typeOfBankAccount; } set { _typeOfBankAccount = value; } }
+
+           public void GetShow() // Метод вывода информации на экран 
+           {
+                Console.WriteLine("Номер счета " + _accountNumber + 
+                   " " + "Баланс счета" + " " + _balance + " " + "Тип счета" + " " + _typeOfBankAccount);
+          }
+
+
+          public  int SetAccountNumber()
+         {
+             int result;
+             Random r = new Random();
+             result =  r.Next(100000, 999999);
+             return result;
+            
+
+          }
 
 
 
